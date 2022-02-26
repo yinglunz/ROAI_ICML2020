@@ -1,14 +1,27 @@
-This is the python code for Robust Outlier Arm Identification accepted at ICML 2020. Used packages include: numpy, math, multiprocessing, copy, functools, astropy.stats, time, datetime and matplotlib.
+# Robust Outlier Arm Identification
 
-ROAI_class.py: These contain classes that are imported by other .py files.
+This repository contains the python code for our ICML 2020 paper **Robust Outlier Arm Identification**. Used packages include: numpy, math, multiprocessing, copy, functools, astropy.stats, time, datetime and matplotlib.
 
-termination_count.py: This contains code to plot Fig 1, in Section 7.1. It computes the empirical stopping time and compare it with the theoretical sample complexity upper bound.
+Use the following command to reproduce our experiment in Figure 1.(b).
 
-OAI_comparison.py: This contains code for Fig. 2 and Fig. 3 in Section 7.2. It computes |proposed threshold - true threshold| or sample complexity upper bounds for different contamination levels.
+```
+python3 termination_count.py
+```
 
-ROAI.py: This contains code for Fig. 4 in Section 7.3. It compares the anytime performance of different algorithms on simulated data.
+Use the following command to reproduce our experiments in Figure 2 and Figure 3 (set `contamination_level = 0` in `OAI_comparison.py`).
 
-real_data.py: This contains code for Fig. 5 in Section 7.3. It compares the anytime performance of different algorithms on the wine dataset. 
+```
+python3 OAI_comparison.py
+```
 
-wine.mat: This file contains the raw wine quality dataset; the preprocessed dataset is included in real_data.py.
+Use the following command to reproduce our experiment in Figure 4.
 
+```
+python3 ROAI.py
+```
+
+Take the following steps to reproduce our experiment in Figure 5. First, get dataset `wine.mat` from this [website](http://odds.cs.stonybrook.edu/wine-dataset/). Next, preprocess the dataset based on the experiment description. Then, input the preprocessed means of normal and outlier arms into `y_normal` and `y_outlier` (in file `real_data.py`). Finally, run the following command.
+
+```
+python3 real_data.py
+```
